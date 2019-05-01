@@ -1,2 +1,2 @@
 # P2-BarnaclesOfTheSea
-Project 2: Life Organizer - An application helps users to better organize their life. 
+Project 2: Life Organizer - An application that helps users to better organize their life. 
