@@ -1,2 +1,2 @@
 # P2-BarnaclesOfTheSea
-Project 2: Life Organizer - An application that helps users to better organize their life. 
+Project 2: The Quizard of Oz -- a quiz/flashcard based game that allows users to effectively study. Users can mark cards for further review and can view their statistics based on their marked cards. Admins can also access the number of users, view which cards they are reviewing and they can also add cards to the question bank. As this app acts as in Mentor/Mentee fashion, the Admin can add users to whom they will mentor and two-way contact can be made between Mentors and Mentees in regard to their study cards.  
