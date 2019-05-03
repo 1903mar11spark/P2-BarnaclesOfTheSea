@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "project2": {
+    "AngularP2": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/project2",
+            "outputPath": "dist/AngularP2",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -58,18 +58,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "project2:build"
+            "browserTarget": "AngularP2:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "project2:build:production"
+              "browserTarget": "AngularP2:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "project2:build"
+            "browserTarget": "AngularP2:build"
           }
         },
         "test": {
@@ -103,7 +103,7 @@
         }
       }
     },
-    "project2-e2e": {
+    "AngularP2-e2e": {
       "root": "e2e/",
       "projectType": "application",
       "prefix": "",
@@ -112,11 +112,11 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "project2:serve"
+            "devServerTarget": "AngularP2:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "project2:serve:production"
+              "devServerTarget": "AngularP2:serve:production"
             }
           }
         },
@@ -132,5 +132,5 @@
       }
     }
   },
-  "defaultProject": "project2"
+  "defaultProject": "AngularP2"
 }
