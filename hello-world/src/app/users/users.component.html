@@ -1,0 +1,29 @@
+<p>
+  users works!
+</p>
+<!--
+<h2>{{ title }}</h2>
+<ul>
+    <li *ngFor="let user of this.users">
+        {{ user }}
+    </li>
+</ul>
+-->
+<div>
+  <span></span>
+  <div class="list-group-item">
+    <strong>Now check out all the users, using HttpClient: </strong>
+  </div>
+  <br>
+  <div class="form-group">
+    <button class="btn btn-success btn-center" (click)="getUsers()">GET ALL USERS</button>
+  </div>
+  <ul>
+    <li *ngFor="let user of this.users">
+      <!--
+      {{bear.name}}, with id {{bear.id}}, of type {{bear.bearType.name}}
+      -->
+      Name: {{user.firstName}} {{user.lastName}}, Usertype: {{user.userType.userTypeName}}
+    </li>
+  </ul>
+</div>
