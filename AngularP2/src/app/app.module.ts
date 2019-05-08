@@ -15,11 +15,11 @@ import { AppRoutingModule } from './app-routing.module';
 //Good old components
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
-import { HomeComponent } from './components/home/home.component';
+import { AdminHomeComponent } from './components/admin-home/admin-home.component';
+// import { HomeComponent } from './components/user-home/home.component;
 import { InfoComponent } from './components/info/info.component';
 import { NavComponent } from './components/layout/nav/nav.component';
 import { CreateUserComponent } from './components/create-user/create-user.component';
-import { AdminHomeComponent } from './components/admin-home/admin-home.component';
 
 //services 
 
@@ -27,11 +27,11 @@ import { AdminHomeComponent } from './components/admin-home/admin-home.component
   declarations: [
     AppComponent,
     LoginComponent,
-    HomeComponent,
+    AdminHomeComponent,
+    // HomeComponent,
     InfoComponent,
     NavComponent,
-    CreateUserComponent,
-    AdminHomeComponent
+    CreateUserComponent
   ],
   imports: [
     BrowserModule,
