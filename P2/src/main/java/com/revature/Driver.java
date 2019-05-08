@@ -1,5 +1,6 @@
 package com.revature;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.hibernate.Session;
@@ -8,15 +9,20 @@ import org.hibernate.Transaction;
 
 import com.revature.DAO.CardDAO;
 import com.revature.DAO.CardDAOImpl;
+import com.revature.DAO.CardStateDAO;
+import com.revature.DAO.CardStateDAOImpl;
 import com.revature.DAO.LoginCredsDAO;
 import com.revature.DAO.LoginCredsDAOImpl;
 import com.revature.DAO.TopicDAO;
 import com.revature.DAO.TopicDAOImpl;
+import com.revature.DAO.UserCardDAO;
+import com.revature.DAO.UserCardDAOImpl;
 import com.revature.DAO.UserDAO;
 import com.revature.DAO.UserDAOImpl;
 import com.revature.DAO.UserTypeDAO;
 import com.revature.DAO.UserTypeDAOImpl;
 import com.revature.beans.Card;
+import com.revature.beans.CardState;
 import com.revature.beans.LoginCreds;
 import com.revature.beans.Topic;
 import com.revature.beans.User;
@@ -37,8 +43,6 @@ public class Driver {
 		System.out.println(s.getStatistics());
 		tx.commit();
 		s.close();
-		
-		
 		
 		//testing persisting data 
 		
@@ -121,6 +125,47 @@ public class Driver {
 		ud.addUser(u3);
 		*/
 		
+		//tests for create a user method 
+		/*
+		User u = new User(71, "Stu", "Stevens", "SStevens@futuretech.com",new UserType(2, "mentor"), new LoginCreds(0, "SStevens", "secret"), 0);
+	 
+		System.out.println(u);
+		
+		//start session 
+		SessionFactory sf2 = ConnectionUtil.getSessionFactory();
+		Session s2 = sf.openSession();
+		Transaction tx2 = s2.beginTransaction();
+		
+		//persist login creds to DB
+		s2.save(u.getLoginCreds()); 
+		
+		System.out.println(u.getLoginCreds().getId());
+		
+		//grab id to session 
+		int userLoginCredsId = u.getLoginCreds().getId(); 
+		
+		//
+		UserType userType = utd.getUserTypeById(u.getUserType().getId()); 
+		
+		User u2 = new User(u.getFirstName(), u.getLastName(), u.getEmail()); 
+		
+		//u2.setLoginCreds(lcd.getLoginCredsById(userLoginCredsId));
+		u2.setLoginCreds(u.getLoginCreds());
+		System.out.println();
+		u2.setUserType(userType);
+		
+		System.out.println(u2);
+		
+		s2.persist(u2);
+		
+		//close 
+		tx2.commit();
+		s2.close();
+		*/
+	
+		
+		
+		
 		//cards 
 		
 		//topics 
@@ -173,14 +218,42 @@ public class Driver {
 		
 		
 		//testing some service methods 
+		/*
 		UserService us = new UserServiceImpl(); 
 		System.out.println(us.getUserById(68)); 
+		*/
 		
 		//test pulling all users with service 
+		/*
 		List<User> userList = us.getAllUsers(); 
 		for (User u: userList) {
 			System.out.println(u);
 		}
+		*/
+		
+		//persist some card states 
+		CardStateDAO csd = new CardStateDAOImpl(); 
+		
+		CardState learning = new CardState(1, "learning"); 
+		//CardState mastered = new CardState(2, "mastered"); 
+		System.out.println(learning); 
+		
+		csd.addCardState(learning);
+		//csd.addCardState(mastered);
+		
+		
+		//working with the USR_CARD table 
+		
+	
+		
+		UserCardDAO ucd = new UserCardDAOImpl(); 
+		
+		
+		//User u = ud.getUserById(70); 
+		
+		//Card c = cd.getCardById(5); 
+		
+		
 		
 		
 	}

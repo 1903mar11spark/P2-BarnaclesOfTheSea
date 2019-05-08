@@ -22,7 +22,10 @@
 		<mapping class ="com.revature.beans.Topic"></mapping>
 		<mapping class ="com.revature.beans.Attempt"></mapping>
 		<mapping class ="com.revature.beans.Result"></mapping>
-		
+		<mapping class ="com.revature.beans.CardState"></mapping>
+		<!--  
+		<mapping class ="com.revature.beans.UserCard"></mapping>
+		-->
 		
 	</session-factory>
 </hibernate-configuration>
