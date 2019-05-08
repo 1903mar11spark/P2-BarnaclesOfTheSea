@@ -24,14 +24,9 @@
             ],
             "styles": [
               "src/styles.css",
-              "src/node_modules/bootstrap/dist/css/bootstrap.min.css",
-              "node_modules/bootstrap/dist/css/bootstrap-reboot.css",
-              "src/node_modules/bootstrap/dist/css/bootstrap-grid.css"
+              "node_modules/bootstrap/dist/css/bootstrap.min.css"
             ],
             "scripts": [
-              "src/node_modules/jquery/dist/jquery.slim.min.js",
-              "src/node_modules/popper.js/dist/umd/popper.min.js",
-              "src/node_modules/bootstrap/dist/js/bootstrap.min.js"
             ],
             "es5BrowserSupport": true
           },
