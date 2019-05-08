@@ -81,10 +81,6 @@
 			<artifactId>jackson-datatype-jsr310</artifactId>
 			<version>2.9.7</version>
 		</dependency>
-<<<<<<< HEAD
-		
-=======
->>>>>>> 9b7290a850686d66ed91f76a39d04547e0d517de
 		
 		<!-- spring-orm -->
 		<dependency>
