@@ -59,7 +59,6 @@ public class UserServiceImpl implements UserService {
 		
 		//u2.setLoginCreds(lcd.getLoginCredsById(userLoginCredsId));
 		u2.setLoginCreds(user.getLoginCreds());
-		System.out.println();
 		u2.setUserType(userType);
 		
 		System.out.println(u2);
