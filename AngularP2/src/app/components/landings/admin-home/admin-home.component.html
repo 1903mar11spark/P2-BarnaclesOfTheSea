@@ -7,9 +7,16 @@
           Featured
         </div>
         <div class="card-body">
-          <h5 class="card-title">Special title treatment</h5>
-          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
+          <h5 class="card-title">Select All Users</h5>
+          <p class="card-text">All Mentors and Mentees</p>
+          <div class="form-group">
+                <button class="btn btn-info btn-center" (click)="getUsers()">GET ALL USERS</button>
+              </div>
+              <ul>
+                <li *ngFor="let user of this.users">
+                  Name: {{user.firstName}} {{user.lastName}}, Usertype: {{user.userType.userTypeName}}
+                </li>
+              </ul>
         </div>
         <div class="card-footer text-muted">
           2 days ago
@@ -22,7 +29,8 @@
                <app-user-info></app-user-info>
               </div>
               <div class="col">
-                2 of 3
+                    
+                        2 of 3
               </div>
               <div class="col">
                 3 of 3
