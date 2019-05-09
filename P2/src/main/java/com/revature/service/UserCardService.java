@@ -1,16 +1,16 @@
 package com.revature.service;
 
 import java.util.List;
-
-import com.revature.beans.UserCard;
+//
+//import com.revature.beans.UserCard;
 
 public interface UserCardService {
 
-	public List<UserCard> getAllUserCards(); 
-	
-	public void addUserCard(UserCard userCard); 
-	
-	public boolean updateUserCard(UserCard userCard); 
-	
-	public void deleteUserCard(UserCard userCard); 
+//	public List<UserCard> getAllUserCards(); 
+//	
+//	public void addUserCard(UserCard userCard); 
+//	
+//	public boolean updateUserCard(UserCard userCard); 
+//	
+//	public void deleteUserCard(UserCard userCard); 
 }

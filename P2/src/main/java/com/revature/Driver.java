@@ -57,6 +57,7 @@ public class Driver {
 		
 		UserTypeDAO utd = new UserTypeDAOImpl(); 
 		
+		
 		//user types 
 		/*
 		UserType ut1 = new UserType(1, "learner"); 
@@ -86,6 +87,7 @@ public class Driver {
 		
 		UserDAO ud = new UserDAOImpl();
 		
+//		System.out.println(ud.getUserById(10));
 		//pull user types from DB
 		/*
 		UserType learner = utd.getUserTypeById(1); 
@@ -233,12 +235,12 @@ public class Driver {
 		
 		//persist some card states 
 		CardStateDAO csd = new CardStateDAOImpl(); 
-		
-		CardState learning = new CardState(1, "learning"); 
+//		
+//		CardState learning = new CardState(1, "learning"); 
 		//CardState mastered = new CardState(2, "mastered"); 
-		System.out.println(learning); 
-		
-		csd.addCardState(learning);
+//		System.out.println(learning); 
+//		
+//		csd.addCardState(learning);
 		//csd.addCardState(mastered);
 		
 		
