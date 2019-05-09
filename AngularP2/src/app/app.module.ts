@@ -24,6 +24,7 @@ import { FooterComponent } from './components/layout/footer/footer.component';
 import { UserInfoComponent } from './components/sections/user-info/user-info.component';
 import { CardsComponent } from './components/sections/cards/cards.component';
 import { UserHomeComponent } from './components/landings/user-home/user-home.component';
+import { StatsComponent } from './components/sections/stats/stats.component';
 
 //services 
 
@@ -38,7 +39,8 @@ import { UserHomeComponent } from './components/landings/user-home/user-home.com
     FooterComponent,
     UserInfoComponent,
     CardsComponent,
-    UserHomeComponent
+    UserHomeComponent,
+    StatsComponent
   ],
   imports: [
     BrowserModule,
