@@ -1,19 +1,21 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { HomeComponent } from './components/home/home.component';
-import { CreateUserComponent } from './components/create-user/create-user.component';
-import { LoginComponent } from './components/login/login.component';
+
+import { CreateUserComponent } from './components/landings/create-user/create-user.component';
+import { LoginComponent } from './components/landings/login/login.component';
+import { AdminHomeComponent } from './components/landings/admin-home/admin-home.component';
+import { UserHomeComponent } from './components/landings/user-home/user-home.component';
 
 
 
 
 const routes: Routes = [
 
-  { path: 'home', component: HomeComponent},
+  
   { path: 'login', component: LoginComponent},
   { path: 'signUp', component: CreateUserComponent},
-
+  { path: 'adminHome', component: AdminHomeComponent}
   // sneeky trick to redirect them back
   // { path: '**', redirectTo: 'login' }
 

@@ -7,13 +7,14 @@ import { HttpClient } from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
 })
-export class AdminService {
+
+export class UserService {
 
   endpoint = 'http://localhost:8084/P2/user';
 
   constructor(private httpClient: HttpClient) { }
 
-  public fetchUserInfo(id: number): Observable<User>{
+  public fetchUserInformation(id: number): Observable<User>{
     return this.httpClient.get<User>(`${this.endpoint}?id=${id}`)
   }
 
@@ -24,3 +25,4 @@ export class AdminService {
 }
 
 
+  

@@ -1,0 +1,41 @@
+<app-nav></app-nav>
+
+
+
+<div class="card text-center">
+        <div class="card-header">
+          Featured
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">Select All Users</h5>
+          <p class="card-text">All Mentors and Mentees</p>
+          <div class="form-group">
+                <button class="btn btn-info btn-center" (click)="getUsers()">GET ALL USERS</button>
+              </div>
+              <ul>
+                <li *ngFor="let user of this.users">
+                  Name: {{user.firstName}} {{user.lastName}}, Usertype: {{user.userType.userTypeName}}
+                </li>
+              </ul>
+        </div>
+        <div class="card-footer text-muted">
+          <app-stats></app-stats>
+        </div>
+      </div>
+
+      <div class="container-flex">
+            <div class="row">
+              <div class="col">
+               <app-user-info></app-user-info>
+              </div>
+              <div class="col">
+                    
+                        2 of 3
+              </div>
+              <div class="col">
+                3 of 3
+              </div>
+            </div>
+          </div>
+          
+<app-footer></app-footer>
