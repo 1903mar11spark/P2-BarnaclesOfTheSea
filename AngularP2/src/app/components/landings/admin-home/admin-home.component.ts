@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { UserService } from 'src/app/services/user.service'
-import { User } from 'src/app/models/user.model';
+
 
 
 @Component({
@@ -11,23 +10,10 @@ import { User } from 'src/app/models/user.model';
 
 export class AdminHomeComponent implements OnInit {
 
-  title = 'User List';
+  constructor() { }
 
-  users: User[];
-  user: User;
-
-  constructor(private userService: UserService) { }
-
-  getUsers(): void {
-    this.userService.fetchAllUsers()
-      .subscribe(
-        (userList: any) => { this.users = userList; console.log(this.users); },
-        error => { console.log(error); }
-      );
-    console.log('populated users');
-    console.log(this.users);
   
-  }
+
   ngOnInit() {
   }
 
