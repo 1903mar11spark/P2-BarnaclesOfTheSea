@@ -24,7 +24,7 @@ import { FooterComponent } from './components/layout/footer/footer.component';
 import { UserInfoComponent } from './components/sections/user-info/user-info.component';
 import { CardsComponent } from './components/sections/cards/cards.component';
 import { UserHomeComponent } from './components/landings/user-home/user-home.component';
-import { StatsComponent } from './components/sections/stats/stats.component';
+import { FlipCardComponent } from './components/features/flip-card/flip-card.component';
 
 //services 
 
@@ -40,7 +40,8 @@ import { StatsComponent } from './components/sections/stats/stats.component';
     UserInfoComponent,
     CardsComponent,
     UserHomeComponent,
-    StatsComponent
+    FlipCardComponent,
+    
   ],
   imports: [
     BrowserModule,
