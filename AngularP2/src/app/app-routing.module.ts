@@ -12,12 +12,11 @@ import { UserHomeComponent } from './components/landings/user-home/user-home.com
 
 const routes: Routes = [
 
-  
+  { path: ' ', redirectTo: 'login'},
   { path: 'login', component: LoginComponent},
   { path: 'signUp', component: CreateUserComponent},
-  { path: 'adminHome', component: AdminHomeComponent}
-  // sneeky trick to redirect them back
-  // { path: '**', redirectTo: 'login' }
+  { path: 'adminHome', component: AdminHomeComponent},
+  { path: 'userHome', component: UserHomeComponent}
 
 ];
 
