@@ -1,27 +1,39 @@
-<!DOCTYPE html>
-<html>
+
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 </head>
-<body>
+<body >
 
-<h1>Card Flip with Text</h1>
+<h1>Card Flip with Textt</h1>
 <h3>Hover over the image below:</h3>
 
+<div *ngFor="let flashcard of this.flashcards">
 <div class="flip-card">
   <div class="flip-card-inner">
     <div class="flip-card-front">
-      <h1>Question</h1>
+      <div *ngIf="(flashcard.topic.topicName== 'Geography')">
+        <!-- <div *ngFor="let flashcard of this.flashcards"> -->
+           <h2> {{flashcard.question}} </h2>
+          <!-- </div> -->
+        </div>
     </div>
     <div class="flip-card-back">
-      <h1>Answer</h1> 
-      
+        <!-- <div *ngFor="let flashcard of this.flashcards"> -->
+            <br>
+            <h2>{{flashcard.answer}}</h2>
+            <br>Category: {{flashcard.topic.topicName}}
+          <!-- </div> -->
     </div>
+    
   </div>
 </div>
+<br> <br>
+</div>
+<!-- <button (click)="loadFlashCards()">Get Flashcards</button>
+<div   *ngFor="let flashcard of this.flashcards">
+</div> -->
 
 </body>
-</html> 
 
  

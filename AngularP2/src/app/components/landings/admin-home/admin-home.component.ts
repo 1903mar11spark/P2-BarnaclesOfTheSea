@@ -21,7 +21,9 @@ export class AdminHomeComponent implements OnInit {
   getUsers(): void {
     this.userService.fetchAllUsers()
       .subscribe(
-        (userList: any) => { this.users = userList; console.log(this.users); },
+        (userList: any) => { this.users = userList;
+           console.log(this.users); 
+          },
         error => { console.log(error); }
       );
     console.log('populated users');

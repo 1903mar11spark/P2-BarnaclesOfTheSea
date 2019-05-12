@@ -38,7 +38,7 @@ public class UserController {
 	
 	//methods
 	
-	@CrossOrigin(origins = "http://localhost:4050")
+	@CrossOrigin(origins = "http://localhost:4051")
 	@RequestMapping(value="/all", method=RequestMethod.GET)
 	public ResponseEntity<List<User>> getAllUsers() {
 		return new ResponseEntity<>(us.getAllUsers(), HttpStatus.OK);
