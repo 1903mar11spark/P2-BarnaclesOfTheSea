@@ -9,30 +9,46 @@ import { FlashcardService} from '../../../services/flashcard.service';
 export class FlipCardComponent implements OnInit {
 flashcards: Flashcard[];
 flashcard: Flashcard;
+num: number;
   constructor(private flashcardService:FlashcardService) { }
-
+temporary:Flashcard[];
   loadFlashCards(): void{
     this.flashcardService.getFlashcards()
     .subscribe(
     (flashcardList: any) => { this.flashcards = flashcardList;
        console.log(this.flashcards);
+
+       this.num=this.flashcards.length;
+       this.temporary=this.flashcards;
       },
     error => { console.log(error); }
     )
 
+
+
   }
-  Maff='Mathematics';
-  flashCatagory='Mathematics';
+  flashCatagory='';
+  
+
+  
+  
+
 
   filterFlashCards(filter: string): void{
-    
+
+
     this.flashCatagory= filter;
-    console.log(this.flashCatagory);
+   
+    
     
   }
   
   ngOnInit() {
     this.loadFlashCards();
+    
+
+
+    
   }
 
 }

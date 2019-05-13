@@ -5,23 +5,28 @@
 </head>
 <body >
 
-<h1>Card Flip with Textt</h1>
-<h3>Hover over the image below:</h3>
+
+    <h3>Select a topic</h3>
 
 <br>
-
+<div>
 <select (change)="filterFlashCards($event.target.value)">
-     <option value = "0">   </option>
-    <option *ngFor="let flashcard of this.flashcards, let i=index" value="{{flashcard.topic.topicName}}">
-        <!-- <div *ngIf="{{flashcard.topic.topicName}} == {{flashcard.topic.topicName}}"> -->
+  <option value="">  </option>
+          <!-- <div *ngIf=" flashcard.topic.topicName == 'Geography'"> -->
+
+    <option *ngFor="let flashcard of this.flashcards" value="{{flashcard.topic.topicName}}">
       {{flashcard.topic.topicName}}
+
     </option>
-    
+        <!-- </div> -->
+
     <!-- <option value="volvo">Volvo</option>
     <option value="saab">Saab</option>
     <option value="opel">Opel</option>
     <option value="audi">Audi</option> -->
   </select>
+</div>
+<h5>Hover over the flashcard to see the Answer!</h5>
     <br>
     <br>
 <br>

@@ -25,7 +25,7 @@ import { UserInfoComponent } from './components/sections/user-info/user-info.com
 import { CardsComponent } from './components/sections/cards/cards.component';
 import { UserHomeComponent } from './components/landings/user-home/user-home.component';
 import { FlipCardComponent } from './components/features/flip-card/flip-card.component';
-import {UniquePipe} from '../app/components/features/customPipe/unique';
+import {UniquePipe} from '../app/app.component';
 //services 
 
 @NgModule({
