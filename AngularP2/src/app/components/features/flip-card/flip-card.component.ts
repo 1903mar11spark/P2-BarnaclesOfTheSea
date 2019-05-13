@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Flashcard } from 'src/app/models/Flashcard';
 import { FlashcardService} from '../../../services/flashcard.service';
-
 @Component({
   selector: 'app-flip-card',
   templateUrl: './flip-card.component.html',
@@ -22,19 +21,18 @@ flashcard: Flashcard;
     )
 
   }
-  
-  
-  checkCategories(Category:string): string{
-    let categoryCheck=false;
+  Maff='Mathematics';
+  flashCatagory='Mathematics';
 
-    if(Flashcard.topic.topicName='Geography'){
-      categoryCheck=true;
-    }
-return categoryCheck;
+  filterFlashCards(filter: string): void{
+    
+    this.flashCatagory= filter;
+    console.log(this.flashCatagory);
+    
   }
+  
   ngOnInit() {
     this.loadFlashCards();
-    this.checkCategories('');
   }
 
 }
