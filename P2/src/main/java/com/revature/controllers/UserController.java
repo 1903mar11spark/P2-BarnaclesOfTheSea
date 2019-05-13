@@ -24,6 +24,7 @@ import com.revature.beans.User;
 import com.revature.service.UserService;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:4203")
 @RequestMapping(value="/user")
 public class UserController {
 	
@@ -38,7 +39,7 @@ public class UserController {
 	
 	//methods
 	
-	@CrossOrigin(origins = "http://localhost:4200")
+//	@CrossOrigin(origins = "http://localhost:4203")
 	@RequestMapping(value="/all", method=RequestMethod.GET)
 	public ResponseEntity<List<User>> getAllUsers() {
 		return new ResponseEntity<>(us.getAllUsers(), HttpStatus.OK);

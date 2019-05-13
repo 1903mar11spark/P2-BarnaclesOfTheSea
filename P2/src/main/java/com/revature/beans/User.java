@@ -1,23 +1,49 @@
 package com.revature.beans;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
-
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+
+@NamedQueries({
+	
+	@NamedQuery(name = "getUserbyLoginCredsId", query = "from User where loginCreds.id = :loginCredsVar"), 
+	@NamedQuery(name = "getAllAdminIds", query ="select id from User where userType.id = 2")
+})
 
 @Entity // indicates that the class represents a DB entity
 @Table(name ="USR")
 public class User {
 
+	//adding this on May9
+	/*
+	@ManyToMany(cascade = { CascadeType.ALL }, fetch = FetchType.EAGER)
+	@JoinTable(
+		name = "USR_CARD", 
+		joinColumns = { @JoinColumn(name = "USRID") }, 
+		inverseJoinColumns = { @JoinColumn(name = "CARDID") }
+	)
+	*/
+	
 	//constructors
 	public User() {
 	}
@@ -57,6 +83,7 @@ public class User {
 	@Column(name="USRID")
 	private int id; 
 	
+	
 	@Column(name="FIRSTNAME")
 	private String firstName; 
 	
@@ -77,6 +104,11 @@ public class User {
 	@Column(name="MENTOREDBY")
 	private int mentoredBy;
 	
+	@JsonIgnore
+	@OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
+	private Set <UserCard> userCards  = new HashSet<UserCard>(); 
+	
+
 	//getters and setters 
 	public int getId() {
 		return id;
@@ -120,12 +152,27 @@ public class User {
 	public void setMentoredBy(int mentoredBy) {
 		this.mentoredBy = mentoredBy;
 	}
+	//the hash set 
+	public Set<UserCard> getUserCards() {
+		return userCards;
+	}
+	public void setUserCards(Set<UserCard> userCard) {
+		this.userCards = userCard;
+	}
 	
+	//methods  
+    public void addUserCard(UserCard userCard) {
+        this.userCards.add(userCard);
+    }  
+  	public void addCard(UserCard card) {
+  		this.userCards.add(card);
+  	}
+
 	//toString
 	@Override
 	public String toString() {
 		return "User [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email
 				+ ", userType=" + userType + ", loginCreds=" + loginCreds + ", mentoredBy=" + mentoredBy + "]";
 	}
-
+	
 }

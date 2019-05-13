@@ -1,24 +1,52 @@
 package com.revature.beans;
 
-public class Attempt {
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
 
-	//instance variables 
-	int id; 
-	int userId; 
-	int cardId; 
-	int resultId; 
+@Entity 
+@Table(name ="ATTEMPT")
+public class Attempt {
 	
 	//constructors 
 	public Attempt() {
 	}
-	public Attempt(int id, int userId, int cardId, int resultId) {
+	public Attempt(int id, UserCard userCard, Result result) {
 		super();
 		this.id = id;
-		this.userId = userId;
-		this.cardId = cardId;
-		this.resultId = resultId;
+		this.userCard = userCard;
+		this.result = result;
 	}
+	public Attempt(UserCard userCard, Result result) {
+		super();
+		this.userCard = userCard;
+		this.result = result;
+	}
+
+	//instance variables
+	@Id //indicates primary key
+	@GeneratedValue(strategy = GenerationType.AUTO, generator = "attemptSequence")
+	@SequenceGenerator(allocationSize=1, name="attemptSequence", sequenceName="SQ_ATTEMPT_PK")
+	@Column(name="ATTEMPTID")
+	int id; 
 	
+	@ManyToOne(fetch=FetchType.EAGER)
+	@JoinColumn(name = "USERCARDID")
+	UserCard userCard; 
+	
+	//additional field
+	@ManyToOne(fetch=FetchType.EAGER)
+	@JoinColumn(name = "RESULTID")
+	Result result;
+
 	//getters and setters 
 	public int getId() {
 		return id;
@@ -26,31 +54,22 @@ public class Attempt {
 	public void setId(int id) {
 		this.id = id;
 	}
-	public int getUserId() {
-		return userId;
+	public UserCard getUserCard() {
+		return userCard;
 	}
-	public void setUserId(int userId) {
-		this.userId = userId;
+	public void setUserCard(UserCard userCard) {
+		this.userCard = userCard;
 	}
-	public int getCardId() {
-		return cardId;
+	public Result getResult() {
+		return result;
 	}
-	public void setCardId(int cardId) {
-		this.cardId = cardId;
-	}
-	public int getResultId() {
-		return resultId;
-	}
-	public void setResultId(int resultId) {
-		this.resultId = resultId;
+	public void setResult(Result result) {
+		this.result = result;
 	}
 	
 	//toString
 	@Override
 	public String toString() {
-		return "Attempt [id=" + id + ", userId=" + userId + ", cardId=" + cardId + ", resultId=" + resultId + "]";
+		return "Attempt [id=" + id + ", userCard=" + userCard + ", result=" + result + "]";
 	}
-	
-	
-
 }

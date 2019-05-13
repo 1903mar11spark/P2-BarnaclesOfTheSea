@@ -1,18 +1,27 @@
 package com.revature;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
+import javax.persistence.Query;
+
+import org.hibernate.Hibernate;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 
+import com.revature.DAO.AttemptDAO;
+import com.revature.DAO.AttemptDAOImpl;
 import com.revature.DAO.CardDAO;
 import com.revature.DAO.CardDAOImpl;
 import com.revature.DAO.CardStateDAO;
 import com.revature.DAO.CardStateDAOImpl;
 import com.revature.DAO.LoginCredsDAO;
 import com.revature.DAO.LoginCredsDAOImpl;
+import com.revature.DAO.ResultDAO;
+import com.revature.DAO.ResultDAOImpl;
 import com.revature.DAO.TopicDAO;
 import com.revature.DAO.TopicDAOImpl;
 import com.revature.DAO.UserCardDAO;
@@ -21,11 +30,14 @@ import com.revature.DAO.UserDAO;
 import com.revature.DAO.UserDAOImpl;
 import com.revature.DAO.UserTypeDAO;
 import com.revature.DAO.UserTypeDAOImpl;
+import com.revature.beans.Attempt;
 import com.revature.beans.Card;
 import com.revature.beans.CardState;
 import com.revature.beans.LoginCreds;
+import com.revature.beans.Result;
 import com.revature.beans.Topic;
 import com.revature.beans.User;
+import com.revature.beans.UserCard;
 import com.revature.beans.UserType;
 import com.revature.service.UserService;
 import com.revature.service.UserServiceImpl;
@@ -57,7 +69,6 @@ public class Driver {
 		
 		UserTypeDAO utd = new UserTypeDAOImpl(); 
 		
-		
 		//user types 
 		/*
 		UserType ut1 = new UserType(1, "learner"); 
@@ -87,7 +98,6 @@ public class Driver {
 		
 		UserDAO ud = new UserDAOImpl();
 		
-//		System.out.println(ud.getUserById(10));
 		//pull user types from DB
 		/*
 		UserType learner = utd.getUserTypeById(1); 
@@ -234,29 +244,193 @@ public class Driver {
 		*/
 		
 		//persist some card states 
-		CardStateDAO csd = new CardStateDAOImpl(); 
-//		
-//		CardState learning = new CardState(1, "learning"); 
-		//CardState mastered = new CardState(2, "mastered"); 
-//		System.out.println(learning); 
-//		
-//		csd.addCardState(learning);
-		//csd.addCardState(mastered);
 		
+		CardStateDAO csd = new CardStateDAOImpl(); 
+		/*
+		CardState learning = new CardState(1, "learning"); 
+		CardState mastered = new CardState(2, "mastered"); 
+		//System.out.println(learning); 
+		
+		csd.addCardState(learning);
+		csd.addCardState(mastered);
+		*/
 		
 		//working with the USR_CARD table 
 		
+		// -- code below works to set cards to a user
+		/*
+		User sandy = ud.getUserById(70); //pull sandy into session context 
 	
+		Card card16 = cd.getCardById(16); //pull card into session context 
+
 		
+		Set<Card> sCards = new HashSet<>(); 
+	
+		sCards.add(card16); 
+		
+		sandy.setCards(sCards); 
+
+		ud.updateUser(sandy); 
+		*/
+	
+	
+		//pulling a users card set into the session context 
+		/*
+		Set<Card> sCards = sandy.getCards(); 
+	 
+		sCards.
+		
+		System.out.println(sCards);
+		*/
+		
+	
+		/*
+		User sandy = ud.getUserById(70); 
+		
+		Card card16 = cd.getCardById(16);
+		
+		CardState learning = csd.getCardStateById(1); 
+		 
+		
+		SessionFactory sf2 = ConnectionUtil.getSessionFactory();
+		Session s2 = sf.openSession();
+		Transaction tx2 = s2.beginTransaction();
+		
+		UserCard sandyCard16 = new UserCard();
+		sandyCard16.setCard(card16);
+		sandyCard16.setUser(sandy);
+		sandyCard16.setCardState(learning);
+		
+		s2.save(sandyCard16);
+		
+		System.out.println(s2.getStatistics());
+		tx2.commit();
+		s2.close();
+		*/
+		
+		/*
+		User john = ud.getUserById(69); 
+		
+		Card card10 = cd.getCardById(10);
+		
+		CardState learning = csd.getCardStateById(1); 
+		 
+		
+		SessionFactory sf2 = ConnectionUtil.getSessionFactory();
+		Session s2 = sf.openSession();
+		Transaction tx2 = s2.beginTransaction();
+		
+		UserCard johnCard10 = new UserCard();
+		johnCard10.setCard(card10);
+		johnCard10.setUser(john);
+		johnCard10.setCardState(learning);
+		
+		s2.save(johnCard10);
+		
+		System.out.println(s2.getStatistics());
+		tx2.commit();
+		s2.close();
+		*/
+		
+		/*
+		User marry = ud.getUserById(92); 
+		
+		Card card16 = cd.getCardById(16);
+		
+		CardState learning = csd.getCardStateById(1); 
+		 
+		
+		SessionFactory sf2 = ConnectionUtil.getSessionFactory();
+		Session s2 = sf.openSession();
+		Transaction tx2 = s2.beginTransaction();
+		
+		UserCard marryCard16 = new UserCard();
+		marryCard16.setCard(card16);
+		marryCard16.setUser(marry);
+		marryCard16.setCardState(learning);
+		
+		s2.save(marryCard16);
+		
+		System.out.println(s2.getStatistics());
+		tx2.commit();
+		s2.close();
+		*/
+		
+		ResultDAO rd = new ResultDAOImpl(); 
+		AttemptDAO ad = new AttemptDAOImpl(); 
+		/*
+		Result correct = new Result(1, "correct"); 
+		rd.addResult(correct);
+		Result correct = new Result(2, "incorrect"); 
+		rd.addResult(correct);
+		*/
+		
+		//some mock attempts at cards 
+		/*
 		UserCardDAO ucd = new UserCardDAOImpl(); 
 		
+		Result correct = rd.getResultById(1); 
 		
-		//User u = ud.getUserById(70); 
+		UserCard johnCard10 = ucd.getUserCardById(3); 
 		
-		//Card c = cd.getCardById(5); 
+		Attempt JohnsAttempt = new Attempt(johnCard10, correct); 
+		
+		ad.addAttempt(JohnsAttempt);
+		*/
+		
+		//testing named queries 
+		
+		SessionFactory sf2 = ConnectionUtil.getSessionFactory();
+		Session s2 = sf2.openSession();
+		/*
+		//query 1
+		Query q = s2.getNamedQuery("getUserbyLoginCredsId"); 
+		q.setParameter("loginCredsVar", 1); 
+		
+		List<User> userList = q.getResultList(); 
+		
+		for (User user : userList) {
+			System.out.println(user);
+		}
+		
+		//query 2
+		Query q2 = s2.getNamedQuery("getLoginCredsIdbyUnameAndPword"); 
+		q2.setParameter("uNameVar", "FFlower"); 
+		q2.setParameter("pWordVar", "fanciful"); 
+		
+		List<Integer> loginCredsIdList = q2.getResultList(); 
+		
+		for (Integer id : loginCredsIdList) {
+			System.out.println(id);
+		}
+		 
+		
+		//System.out.println(s.getStatistics());
+		s.close();
+		*/
+		/*
+		User user = ud.getUserbyUnameAndPword("FFlower", "fanciful"); 
+		System.out.println(user);
+		*/
+		
+		//query 2
+		/*
+		Query q3 = s2.getNamedQuery("getAllManagerIds"); 
+			
+		List<Integer> managerIdList = q3.getResultList(); 
+				
+		for (Integer id : managerIdList) {
+			System.out.println(id);
+		}	 
+				
+		//System.out.println(s.getStatistics());
+		s.close();
+		*/
+		UserService us = new UserServiceImpl(); 
 		
 		
+		User user = us.getUserByUnameAndPWord("FFlower", "fanciful");
 		
-		
+		System.out.println(user);
 	}
 }

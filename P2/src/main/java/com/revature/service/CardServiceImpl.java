@@ -16,7 +16,7 @@ import com.revature.beans.UserType;
 import com.revature.util.ConnectionUtil;
 
 @Service
-public class CarServiceImpl implements CardService {
+public class CardServiceImpl implements CardService {
 
 	// instance variables
 	private CardDAO cd = new CardDAOImpl();

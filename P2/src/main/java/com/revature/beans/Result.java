@@ -1,10 +1,13 @@
 package com.revature.beans;
 
-public class Result {
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
-	//instance variables 
-	int id; 
-	String resultName; 
+@Entity
+@Table(name="RESULT")
+public class Result {
 	
 	//constructors 
 	public Result() {
@@ -15,6 +18,16 @@ public class Result {
 		this.resultName = resultName;
 	}
 	
+	//instance variables 
+	
+	@Id //indicates primary key 
+	@Column(name="RESULTID")	
+	int id; 
+	
+	@Column(name="RESULTNAME")
+	String resultName; 
+		
+		
 	//getters and setters 
 	public int getId() {
 		return id;
