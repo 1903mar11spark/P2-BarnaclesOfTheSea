@@ -12,6 +12,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.MultiValueMap;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -26,6 +27,7 @@ import com.revature.service.AuthService;
 import com.revature.service.UserService;
 
 @Controller
+//@CrossOrigin(origins = "http://localhost:4203")
 public class LoginController {
 
 	// instance variable - Http session variable to track session from back end &
@@ -115,9 +117,13 @@ public class LoginController {
 	@GetMapping(value = "/sessionUser")
 	ResponseEntity<UserLogging> returnUserLogging(HttpSession session) {
 		
-		UserLogging userLogging = new UserLogging(Integer.parseInt(session.getAttribute("userId").toString()), session.getAttribute("username").toString(), session.getAttribute("firstname").toString(), session.getAttribute("lastname").toString(), session.getAttribute("lastname").toString(), session.getAttribute("usertype").toString()); 
+		System.out.println("in method");
 		
-	    return new ResponseEntity<>(userLogging, HttpStatus.OK);
+		UserLogging userLogging = new UserLogging(Integer.parseInt(session.getAttribute("userId").toString()), session.getAttribute("username").toString(), session.getAttribute("firstname").toString(), session.getAttribute("lastname").toString(), session.getAttribute("email").toString(), session.getAttribute("usertype").toString()); 
+		
+		System.out.println(userLogging);
+	 
+		return new ResponseEntity<>(userLogging, HttpStatus.OK);
 	    
 	}
 	/*

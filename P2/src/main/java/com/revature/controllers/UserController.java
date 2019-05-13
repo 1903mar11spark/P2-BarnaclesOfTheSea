@@ -67,7 +67,7 @@ public class UserController {
 			return new ResponseEntity<>(u, HttpStatus.OK);
 		}
 	}
-	
+//	@PostMapping(path = "/create", consumes = "application/json", produces = "application/json")
 	@PostMapping
 	public ResponseEntity<String> createUser(@RequestBody User user){
 		ResponseEntity<String> resp = null;
